@@ -5,7 +5,7 @@
 
 ---
 
-## 폼처리 - 등록 폼
+## 폼(Form) 처리
 
 ```html
 <form action="item.html" th:action th:object="${item}" method="post">
@@ -21,6 +21,13 @@
         <label for="quantity">수량</label>
         <input type="text" id="quantity" th:field="*{quantity}" class="form-control" placeholder="수량을 입력하세요">
     </div>
+```
+```html
+    <form action="item.html" th:action th:object="${item}" method="post">
+        <div>
+            <label for="id">상품 ID</label>
+            <input type="text" id="id" class="form-control" th:field="*{id}"  readonly>
+        </div>
 ```
 - `th:object` : 폼과 관련된 객체 지정
 - 선택 변수식 `*{...}` : 앞에서 th:object에서 지정한 객체의 프로퍼티와 같음.
