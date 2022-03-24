@@ -5,7 +5,7 @@
 
 ---
 
-## 폼(Form) 처리
+## 폼(Form) 처리 - 기본
 
 ```html
 <form action="item.html" th:action th:object="${item}" method="post">
@@ -36,5 +36,28 @@
   - id : field에서 지정한 변수명
   - name : field에서 지정한 변수명
   - value : field에서 지정한 변수에 저장된 값
+
+---
+
+## 폼(Form) 처리 - 체크박스
+
+### 스프링의 체크박스 처리 지원
+```html
+<input type="checkbox" id="open" name="open" class="form-check-input">
+<input type="hidden" name="_open" value="on"/> <!-- 히든 필드 추가 -->
+```
+- 기본 HTML 폼의 체크박스는 체크되지 않을 경우 서버로 폼 데이터 전송 시 값 자체가 넘어오지 않는다.
+- 폼에 히든필드를 하나 생성해서, 체크박스의 name 앞에 "_(언더바)"를 붙이면 체크가 해제되었을 때 이에 따른 boolean 값이 false로 들어온다.
+
+### 타임리프의 체크박스 처리 지원
+```html
+<input type="checkbox" id="open" th:field="*{open}" class="form-check-input">
+```
+- `th:field` 속성을 이용하여 id, name, value 생성
+- 히든필드도 자동으로 생성해주고 언더바 name 속성도 자동으로 추가해 줌
+
+---
+
+
 
 ---
