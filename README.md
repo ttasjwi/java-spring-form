@@ -100,3 +100,13 @@
 - 아무것도 체크하지 않을 경우 enum 기준 서버에는 null로 넘어간다. null로 넘어가는 것을 허용하지 않으려면 별도로 검증 제약 조건을 추가해주면 된다.
 
 ---
+
+## 타임리프에서 enum 사용하기
+
+```html
+<div th:each="type : ${T(hello.itemservice.domain.item.ItemType)}" class="form-check form-check-inline">
+```
+- enum 클래스의 FQCN을 지정하여, enum을 사용하는 방법이 존재한다.
+- 하지만, 추후 패키지 디렉토리 변경 시 html 파일도 건들여야하고... 자바가 컴파일러에서 타임리프 오류를 잡지 못 해낸다. 여러모로 유지보수 면에서 힘드므로 추천하지 않음.
+
+---
