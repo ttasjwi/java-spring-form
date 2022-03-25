@@ -80,3 +80,22 @@
 - 타임리프는 멀티 체크박스에 대하여, `th:field` 에 지정한 값과 `th:value`에 담긴 값을 비교하여 `checked="checked"`처리도 자동으로 해준다.
 
 ---
+
+## 폼(Form) 처리 - 라디오 버튼
+
+```html
+<div>
+    <div>상품 종류</div>
+    <div th:each="type : ${itemTypes}" class="form-check form-check-inline">
+        <input type="radio" th:field="*{itemType}" th:value="${type.name()}"
+               class="form-check-input">
+        <label th:for="${#ids.prev('itemType')}"
+               th:text="${type.description}"
+               class="form-check-label">상품종류명</label>
+    </div>
+</div>
+```
+- 체크박스와 구조적으로 동일
+- 아무것도 체크하지 않을 경우 enum 기준 서버에는 null로 넘어간다.
+
+---
