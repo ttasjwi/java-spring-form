@@ -110,3 +110,24 @@
 - 하지만, 추후 패키지 디렉토리 변경 시 html 파일도 건들여야하고... 자바가 컴파일러에서 타임리프 오류를 잡지 못 해낸다. 여러모로 유지보수 면에서 힘드므로 추천하지 않음.
 
 ---
+
+## 셀렉트 박스
+```html
+<!-- SELECT -->
+<div>
+    <div>배송 방식</div>
+    <select th:field="*{deliveryCode}" class="form-select">
+        <option value="">==배송 방식 선택==</option>
+        <option th:each="deliveryCode : ${deliveryCodes}"
+                th:value="${deliveryCode.code}"
+                th:text="${deliveryCode.displayName}">FAST</option>
+    </select>
+</div>
+<hr class="my-4">
+```
+- select의 `th:field` : 서버 측의 item.deliveryCode
+  - id, name : deliveryCoded
+  - 하위의 option 태그에서, 일치하는 value에 대하여 selected="selected" 옵션을 달아줌
+- option : select의 하위 태그. value는 서버에 전달되는 값, text는 화면에 표시되는 텍스트
+
+---

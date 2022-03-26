@@ -1,11 +1,13 @@
 package hello.itemservice.domain.item;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 /**
  * 배송
  */
+@RequiredArgsConstructor
+@Getter
 public class DeliveryCode {
     /**
      * FAST: 빠른 배송
